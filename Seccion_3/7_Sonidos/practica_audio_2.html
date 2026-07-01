@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<head>
+    <title>Audio</title>
+    <style>
+        audio ::-webkit-media-controls-panel {
+            background-color: green;
+        }
+
+        
+    </style>
+</head>
+<body>
+    <img src="384.png" type="audio/mpeg"
+    width="20%">
+     <audio id="audioAlarma" controls>
+        <source src="cries_pokemon_legacy_1.ogg" type="audio/mpeg">
+    <script>
+        let elementosegundos = document.getElementById("audioAlarma");
+        function test () {
+            elementosegundos.play();
+        }
+    </script>
+</body>
