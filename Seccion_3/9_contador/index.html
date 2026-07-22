@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contador regresivo</title>
+    
+
+<style>
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin-top: 50px;
+}
+#contador {
+    font-size: 2em;
+    margin: 20px;
+}
+button {
+    font-size: 1em;
+    padding: 10px;
+    margin: 5px;
+    cursor: pointer;
+}
+</style>
+</head>   
+<body>
+    <h1>Contador regresivo</h1>
+    <div id="contador">30</div> <!-- Muestra el tiempo restante-->
+    <button onclick="iniciarContador()">Iniciar</button>
+    <button onclick="detenerContador()">Detener</button>
+    <button onclick="reiniciarContador()">Reiniciar</button>
+    <script>
+        let tiempo = 30; // Tiempo Inicial EN SEG
+        let intervalo; // variable para almacenar el id del setinterval
+        // funcion para actualizar la pantalla con el tiempo actual
+        function actualizarContador() {
+            document.getElementById("contador").textContent = tiempo;
+        }
+        // funcion que se ejecuta cada segundo para restar 1 al time
+        function contar() {
+            if(tiempo > 0) {
+                tiempo--;
+                console.log(tiempo)
+                actualizarContador();
+            } else {
+                detenerContador();
+                alert("!Tiempo terminado¡");
+                
+
+                }
+                function iniciarContador() {
+                    if (!intervalo){
+                        intervalo = setInterval(contar, 1000);
+                    }
+                }
+        }
+        function detenerContador() {
+            clearInterval(intervalo);
+            intervalo = null;
+        }
+        function reiniciarContador (){
+            detenerContador();
+            tiempo = 30;
+            actualizarContador();
+
+        }
+        actualizarContador();
+    </script>
+</body>
+</html>
