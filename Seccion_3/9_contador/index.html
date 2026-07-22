@@ -26,7 +26,7 @@ button {
 </head>   
 <body>
     <h1>Contador regresivo</h1>
-    <div id="contador">30</div> <!-- Muestra el tiempo restante-->
+    <div id="contador">30</div> 
     <button onclick="iniciarContador()">Iniciar</button>
     <button onclick="detenerContador()">Detener</button>
     <button onclick="reiniciarContador()">Reiniciar</button>
@@ -47,10 +47,10 @@ button {
                 detenerContador();
                 alert("!Tiempo terminado¡");
                 
-
+            
                 }
                 function iniciarContador() {
-                    if (!intervalo){
+                    if (!intervalo) {
                         intervalo = setInterval(contar, 1000);
                     }
                 }

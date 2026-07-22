@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Juego de preguntas</title>
+</head>
+<body onload="iniciarContador()">
+  <div class="Contador"
+  <h2>Responde a las siguientes preguntas</h2> 
+  <div id="Contador" class="tiempo">30</div>
+  <div>
+  </div class="pregunta">
+  <p>¿Cuál es el lugar más frío de la tierra?</p>
+  <input type="text" id="P1" placeholder="Responde aqui">
+ 
+  </div class="pregunta">
+  <p>¿Cuál es el río más largo del mundo?</p>
+  <input type="text" id="P2" placeholder="Responde aqui">
+
+   </div class="pregunta">
+  <p>¿Quién pintó “la última cena”?</p>
+  <input type="text" id="P3" placeholder="Responde aqui">
+
+  </div class="pregunta">
+  <p>¿Dónde se encuentra la Sagrada Familia?</p>
+  <input type="text" id="P4" placeholder="Responde aqui">
+
+  </div class="pregunta">
+  <p>¿Cuál es el océano más grande?</p>
+  <input type="text" id="P5" placeholder="Responde aqui">
+  <script> 
+    let tiempo = 30;
+    let intervalo;
+    function actualizarContador() {
+        document.getElementById("Contador").textContent = tiempo;
+    }
+    function contar() {
+            if(tiempo > 0) {
+                tiempo--;
+                console.log(tiempo)
+                actualizarContador();
+            } else {
+                detenerContador();
+                alert("!Game over¡");
+            }
+        }
+        function iniciarContador() {
+             if (!intervalo) {
+                        intervalo = setInterval(contar, 1000);
+                    }
+        }
+         function detenerContador() {
+            clearInterval(intervalo);
+            intervalo = null;
+         }
+  </script>
+  <button onclick="detenerContador()">Termine</button>
+  <button onclick="actualizarContador()">Volver a intentar</button>
+  <script>
+    function detenerContador(){
+        alert()
+    }
+  </script>
+
+</body>
+</html>
