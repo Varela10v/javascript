@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Juego de preguntas</title>
+    <link rel="stylesheet" href="misEstilos.css">
+</head>
+<body onload="iniciarContador()">
+
+  <div class="Contador">
+      <h2>Responde a las siguientes preguntas</h2> 
+      <div id="Contador" class="tiempo">30</div>
+  </div>
+
+  <div class="pregunta">
+      <p>¿Cuál es el lugar más frío de la tierra?</p>
+      <input type="text" id="P1" placeholder="Responde aqui">
+  </div>
+ 
+  <div class="pregunta">
+      <p>¿Cuál es el río más largo del mundo?</p>
+      <input type="text" id="P2" placeholder="Responde aqui">
+  </div>
+
+  <div class="pregunta">
+      <p>¿Quién pintó “la última cena”?</p>
+      <input type="text" id="P3" placeholder="Responde aqui">
+  </div>
+
+  <div class="pregunta">
+      <p>¿Dónde se encuentra la Sagrada Familia?</p>
+      <input type="text" id="P4" placeholder="Responde aqui">
+  </div>
+
+  <div class="pregunta">
+      <p>¿Cuál es el océano más grande?</p>
+      <input type="text" id="P5" placeholder="Responde aqui">
+  </div>
+
+  <!-- Botones de acción -->
+  <button onclick="terminarJuego()">Termine</button>
+  <button onclick="volverAComenzar()">Volver a intentar</button>
+
+  <script> 
+    let tiempo = 30;
+    let intervalo;
+
+    function actualizarContador() {
+        document.getElementById("Contador").textContent = tiempo;
+    }
+
+    function contar() {
+        if(tiempo > 0) {
+            tiempo--;
+            console.log(tiempo);
+            actualizarContador();
+        } else {
+            detenerContador();
+            alert("¡Game over!");
+        }
+    }
+
+    function iniciarContador() {
+        if (!intervalo) {
+            intervalo = setInterval(contar, 1000);
+        }
+    }
+
+    function detenerContador() {
+        clearInterval(intervalo);
+        intervalo = null;
+    }
+
+    // NUEVA: Maneja la lógica al presionar "Termine"
+    function terminarJuego() {
+        detenerContador();
+        alert("Juego terminado. ¡Gracias por participar!");
+    }
+
+    // NUEVA: Restablece el tiempo y limpia las respuestas
+    function volverAComenzar() {
+        detenerContador();
+        tiempo = 30;
+        actualizarContador();
+        
+        // Limpia el texto de todos los inputs de respuesta
+        for (let i = 1; i <= 5; i++) {
+            document.getElementById("P1").value = "";
+            document.getElementById("P2").value = "";
+            document.getElementById("P3").value = "";
+            document.getElementById("P4").value = "";
+            document.getElementById("P5").value = "";
+        }
+        
+        iniciarContador();
+    }
+  </script>
+
+</body>
+</html>
