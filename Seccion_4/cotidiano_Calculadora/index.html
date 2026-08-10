@@ -1,17 +1,103 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
-    
-    <title>Cotidiano</title>
+   
+    <title>Calculadora</title>
+    <link rel="stylesheet" href="misEstilos.css">
 </head>
 <body>
-    <div class="pregunta">
-      <h1>Calculadora</h1>
-      <input type="text" id="P1" 
-  </div>
-  <div class="pregunta">
-      <label>¿</label>
-      <input type="text" id="P1" >
-  </div>
+
+    <div class="Calculadora">
+        <h2>Calculadora</h2>
+
+        <div class="datos">
+            <input type="number" id="num1" placeholder="Número 1">
+            <input type="number" id="num2" placeholder="Número 2">
+        </div>
+
+        <div class="botones">
+            <button onclick="ejecutarSuma()">+</button>
+            <button onclick="ejecutarResta()">-</button>
+            <button onclick="ejecutarMultiplicacion()">X</button>
+            <button onclick="ejecutarDivision()">/</button>
+        </div>
+
+        <div class="botones">
+            <button onclick="calcularRaiz()">Raíz</button>
+            <button onclick="calcularPotencia()">Potencia</button>
+            <button onclick="calcularAbsoluto()">Absoluto</button>
+            <button onclick="generarAleatorio()">Random</button>
+        </div>
+
+        <div class="resultado">
+            <p>Resultado:</p>
+            <input type="text" id="num11" readonly placeholder="0.00">
+        </div>
+    </div>
+
+    <script>
+        let n1;
+        let n2;
+        function obtenerNumeros() {
+            n1 = Number(document.getElementById("num1").value);
+            n2 = Number(document.getElementById("num2").value);
+        }
+
+        function ejecutarSuma() {
+            obtenerNumeros();
+            let resultado = n1 + n2;
+            document.getElementById("num11").value = resultado;
+        }
+
+        function ejecutarResta() {
+            obtenerNumeros();
+            let resultado = n1 - n2;
+            document.getElementById("num11").value = resultado;
+        }
+
+        function ejecutarMultiplicacion() {
+            obtenerNumeros();
+            let resultado = n1 * n2;
+            document.getElementById("num11").value = resultado;
+        }
+
+        function ejecutarDivision() {
+            obtenerNumeros();
+            if (n2 == 0) {
+                document.getElementById("num11").value = "MATH ERROR";
+            } else {
+                let resultado = n1 / n2;
+                document.getElementById("num11").value = resultado;
+            }
+        }
+
+        function calcularRaiz() {
+            obtenerNumeros();
+            if (n1 < 0) {
+                document.getElementById("num11").value = "ERROR: RADICAL < 0";
+            } else {
+                let resultado = Math.sqrt(n1);
+                document.getElementById("num11").value = resultado;
+            }
+        }
+
+        function calcularPotencia() {
+            obtenerNumeros();
+            let resultado = Math.pow(n1, n2);
+            document.getElementById("num11").value = resultado;
+        }
+
+        function calcularAbsoluto() {
+            obtenerNumeros();
+            let resultado = Math.abs(n1);
+            document.getElementById("num11").value = resultado;
+        }
+
+        function generarAleatorio() {
+            let numSuerte = Math.floor(Math.random() * 100) + 1;
+            document.getElementById("num11").value = numSuerte;
+        }
+    </script>
+
 </body>
 </html>
