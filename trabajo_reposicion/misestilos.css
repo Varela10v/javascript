@@ -1,0 +1,24 @@
+
+
+body {
+    background-color: rgb(211, 91, 10);
+    text-align: center;
+}
+
+#caja {
+    background-color: white;
+    width: 350px;
+}
+
+h1 {
+    color: rgb(190, 0, 0);
+}
+
+button {
+    background-color: lightgreen;
+}
+
+#resultado {
+    background-color: rgb(230, 230, 197);
+    text-align: left;
+}
