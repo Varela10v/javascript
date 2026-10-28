@@ -1,0 +1,23 @@
+body {
+    background-color: lightyellow;
+    text-align: center;
+   
+}
+
+h1 {
+    color: rgb(225, 7, 7);
+}
+
+h2 {
+    color: rgb(0, 116, 249);
+}
+
+ul {
+    color: blue;
+    list-style: none;
+}
+
+button {
+    background-color:grey;
+
+}

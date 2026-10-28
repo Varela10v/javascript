@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>boletin</title>
+    <link rel="stylesheet" href="misEstilos.css">
+</head>
+<body>
+
+    <h1>Bienvenido a tu boletin estudiantil</h1>
+
+    <h2>Alumno: Bruce Wayne</h2>
+
+    <h4>Notas:</h4>
+    <ul id="lista"></ul>
+
+    <h4>Promedio: <span id="promedio"></span></h4>
+    <button onclick="calcularPromedio(notas)">Calcular promedio</button>
+
+    <h4>Nota mas alta: <span id="mayor"></span></h4>
+    <button onclick="notaMasAlta(notas)">Buscar nota mas alta</button>
+
+    <h4>¿Hubo algun aplazo? <span id="aplazo"></span></h4>
+    <button onclick="hayAplazados(notas)">Consultar aplazo</button>
+
+    <script src="boletin.js"></script>
+
+</body>
+</html>
